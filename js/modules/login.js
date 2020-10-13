@@ -95,7 +95,7 @@ export default{
         }else{
                 alert("complete los campos vacios");
             }
-        }s
+        }
 
 
     };

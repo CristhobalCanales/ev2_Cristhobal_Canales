@@ -1,5 +1,4 @@
 import login from "./modules/login.js";
-import basket from "./modules/basket.js"
 
 
 var caja = document.getElementById("caja");
