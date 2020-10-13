@@ -1,17 +1,23 @@
-alert('Funciona');
-
 import login from "./modules/login.js";
-import login from "./modules/basket.js";
+import basket from "./modules/basket.js"
+
 
 var caja = document.getElementById("caja");
 
-window.login = login.login;
-window.basket = basket.basket;
+window.cargar = login.cargar;
+window
+
 
 document.getElementById("login").addEventListener("click", () => {
 caja.innerHTML = login.data;
 
 });
+
+document.getElementById("basket").addEventListener("click", () => {
+    caja.innerHTML = basket.data;
+    
+    });
+    
 
  
 
