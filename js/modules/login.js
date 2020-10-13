@@ -83,7 +83,6 @@ export default{
             var obj = {
                 alumno: alumno.value,
                 puntaje: puntaje.value,
-
             };
 
             this.Alumnostabla.push(obj);
