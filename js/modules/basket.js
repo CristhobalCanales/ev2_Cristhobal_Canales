@@ -1,31 +1,30 @@
 export default{
     data: `
+
         <h2>Marcador</h2>
-        <div class="equipos">
         Equipo A <br>
         <input id="txt1" type="text"><br>
-        </div>
-        <div class="equipob">
         Equipo B <br>
         <input id="txt2" type="text"><br>
-        </div>
-        <div class="puntoa">
         Puntos<br>
         <h1 id="puntos1">0</h1>
         <button onclick="suma1()">+1</button>
-        </div>
         <br>
-        <div>
         Puntos<br>
         <h1 id="puntos2">0</h1>
         <button onclick="suma2()">+1</button>
         <br><br>
-        </div>
-        <div class="btnganador">
         <button onclick="ganador()">Ganador</button>
-        <div id="result"></div>
-        <p id=ganador></p>
-        </div>
+        <div id="result">
+        <p id=ganador></p></div>
+        
+
+
+
+
+
+
+
 
     `,
     suma1: function(){

@@ -3,7 +3,7 @@ import basket from "./modules/basket.js";
 
 var caja = document.getElementById("caja");
 
-window.cargar = login.cargar;
+window.cargar = login.cargar.bind(login);
 window.registrar = login.registrar.bind(login);
 
 window.suma1 = basket.suma1;

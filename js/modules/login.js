@@ -61,8 +61,8 @@ export default{
         result.innerHTML = tabla;
       },
       registrar: function () {
-        var nombre = document.getElementById("txt1");
-        var puntaje = document.getElementById("puntaje");
+        var nombre = document.getElementById("txt1").value;
+        var puntaje = document.getElementById("puntaje").value;
         var result = document.getElementById("resultado");
         var resultado;
         var error = document.getElementById("error");
