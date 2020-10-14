@@ -61,8 +61,8 @@ export default{
         result.innerHTML = tabla;
       },
       registrar: function () {
-        var nombre = document.getElementById("txt1").value;
-        var puntaje = document.getElementById("puntaje").value;
+        var nombre = document.getElementById("txt1");
+        var puntaje = document.getElementById("puntaje");
         var result = document.getElementById("resultado");
         var resultado;
         var error = document.getElementById("error");
@@ -86,14 +86,16 @@ export default{
             puntaje: puntaje,
             resultado:resultado
           };
+
           
           this.puntajes.push(obj);  
           this.cargar(); 
-          nombre.value = " ";
+          nombre.value = "";
           nombre.focus();
           puntaje.value = "0";
           
         } else {
+
           error.innerHTML = `Error`;
           error.style.color="red";
         }
