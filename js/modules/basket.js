@@ -1,31 +1,22 @@
 export default{
     data: `
-
         <h2>Marcador</h2>
-        Equipo A <br>
-        <input id="txt1" type="text"><br>
-        Equipo B <br>
-        <input id="txt2" type="text"><br>
-        Puntos<br>
+        Equipo A <input id="txt1" type="text"><br>
+        </div>
+        puntos<br>
         <h1 id="puntos1">0</h1>
         <button onclick="suma1()">+1</button>
-        <br>
-        Puntos<br>
+        <br><br>
+        Equipo b <br>
+        puntos
+        <input id="txt2" type="text"><br>
         <h1 id="puntos2">0</h1>
         <button onclick="suma2()">+1</button>
-        <br><br>
+        <br>
+        <br>
         <button onclick="ganador()">Ganador</button>
-        <div id="result">
-        <p id=ganador></p></div>
-        
-
-
-
-
-
-
-
-
+        <div id="result"></div>
+        <p id=ganador></p>
     `,
     suma1: function(){
         var txt1 = document.getElementById("txt1").value;
@@ -73,12 +64,12 @@ export default{
             } else if(puntos1<puntos2){
                 pganador.innerHTML=`el ganador es ${txt2}`;
             }else{
-                pganador.innerHTML=`hubo un empate`;
+                pganador.innerHTML=`Empate`;
             }
 
         } else {
             pganador.style.color="red";
-            pganador.innerHTML=`complete los campos`;
+            pganador.innerHTML=`Complete los campos`;
         }
 
     }
