@@ -1,100 +1,103 @@
-
-
 export default{
-
-    Alumnostabla: [
-
-        { alumno: "Pablo Rojas", puntaje: 9, resultado: 'BUENO'}
-
+    puntajes: [
+        {alumno:"Pablo Rojas", puntaje: 9 , resultado: "BUENO"}
     ],
-
     data: `
-
         <h1>Autor: Cristhobal Canales</h1>
-        <br>
         Alumno <br>
-        <input id="txt1" type="text" /> <br><br>
-        Puntaje <br>
-        <select id="txt2>
-        <option values="0">0</option>
-        <option values="1">1</option>
-        <option values="2">2</option>
-        <option values="3">3</option>
-        <option values="4">4</option>
-        <option values="5">5</option>
-        <option values="6">6</option>
-        <option values="7">7</option>
-        <option values="8">8</option>
-        <option values="9">9</option>
-        <option values="10">10</option>
+        <input id="txt1" type="text"/><br><br>
+        Puntaje<br>
+        <select id="puntaje">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
         </select>
         <br><br>
-        
-        <button>Registrar</button>
-        <br><br>
-        <div id="resultadologin" ></div>
-
-    
+        <button onclick="registrar()">registrar</button>
+        <br>
+        <p id="error"></p>
+        <div id="resultado"></div>
     `,
-
-    cargar: function() {
-        var resultadologin = document.getElementById('resultadologin');
+    cargar: function () {
+        var result = document.getElementById("resultado");
         var tabla = `
-             <table border=1 width='400'>
-
+                <table border='1' width='400'>
                     <tr>
-
-                          <th>Alumno</th>
-                          <th>Puntaje</th>
-
-
-
+                        <th>Alumno</th>
+                        <th>Puntaje</th>
+                        <th>Resultado</th>
                     </tr>
+          `;
 
-        `;
-
-        this.alumnos.forEach(item => {
-
+        this.puntajes.forEach((item) => {  
+          var color = "r_malo";
+          if(item.resultado=="REGULAR"){
+              color = "r_regular";
+          } else if(item.resultado=="BUENO"){
+                color = "r_bueno";
+          }else if(item.resultado=="MASTER"){
+                color = "r_master";
+          }
+          
             tabla += `
-            
-                    <tr>
-                        <td>${item.Alumno}</td>
-                        <td>${item.Puntaje}</td>
-                    </tr>
-
-            `;
-
+                <tr class="${color}">
+                  <td>${item.alumno}</td>
+                  <td>${item.puntaje}</td>
+                  <td>${item.resultado}</td>
+                </tr>
+              `;
         });
+    
+        tabla += "</table>";
+    
+        result.innerHTML = tabla;
+      },
+      registrar: function () {
+        var nombre = document.getElementById("txt1").value;
+        var puntaje = document.getElementById("puntaje").value;
+        var result = document.getElementById("resultado");
+        var resultado;
+        var error = document.getElementById("error");
+    
+        if (puntaje>=0 && puntaje<=3) {
+            resultado="MALO";
 
-
-        tabla += '</table>'
-
-        resultadologin.innerHTML = tabla;
-
-
-    },
-    agregar: function() {
-
-        var alumno = document.getElementById("txt1");
-        var puntaje = document.getElementById("txt2");
-
-        if (alumno.value != "" || puntaje.value !=""){
-
-            var obj = {
-                alumno: alumno.value,
-                puntaje: puntaje.value,
-            };
-
-            this.Alumnostabla.push(obj);
-            this.cargar();
+        } else if(puntaje>=4 && puntaje<=7){
+            resultado="REGULAR";
             
-            alumno.value = "";
-            puntaje.value ="";
+        } else if(puntaje>=8 && puntaje<=9){
+            resultado="BUENO";
+        } else if(puntaje>=10){
+            resultado="MASTER";
+        }
+        
 
-        }else{
-                alert("complete los campos vacios");
-            }
+        if (nombre.value != "") {
+          var obj = {
+            alumno: nombre,
+            puntaje: puntaje,
+            resultado:resultado
+          };
+          
+          this.puntajes.push(obj);  
+          this.cargar(); 
+          nombre.value = " ";
+          nombre.focus();
+          puntaje.value = "0";
+          
+        } else {
+          error.innerHTML = `Error`;
+          error.style.color="red";
         }
 
-
-    };
+      },
+      
+};

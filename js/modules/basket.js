@@ -13,11 +13,12 @@ export default{
     <h1> 0 </h1>
     Puntos
     <h1> 0 </h1>
-    <button>+1</button><button>+1</button><br><br>
+    <button>+1</button>
+    <button>+1</button>
     <button>Ganador</button>
     <br><br>
     <div id="resultadobasket"></div>
-
+        
 
 `,
 
